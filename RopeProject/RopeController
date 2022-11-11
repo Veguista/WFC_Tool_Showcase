@@ -1,0 +1,96 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RopeController : MonoBehaviour
+{
+    #region Variables
+
+    [Header("Rope Variables")]
+    [Range(0, 50)] public int maxNumberOfKnots = 20;
+    [Range(0, 10)] public float distanceBetweenKnots = 2;
+    public GameObject ropePulsePrefab;
+    [Range(0, 5)] public float ropeDissapearTime = 1;
+    public GameObject ropeDissapearControllerPrefab;
+    
+    [Space]
+    
+    [Header("Movement Variables")]
+    // The acceleration the target will experience (m/s^2).
+    // [Range(0, 100)] public float targetAcceleration = 50;
+
+    // The maximum speed the target will have while moving.
+    [Range(0, 50)] public float targetMaxSpeed = 10;
+
+    // The way the target's speed will decay as it completes the rope.
+    // Range[0, 1] - X is number of length of the rope. [0 ==  0 lenght; 1 == max Lenght]
+    [SerializeField] public AnimationCurve targetDecelerationCurve;
+
+
+
+    [Space]
+    [Header("Input variables")]
+    // Ammount of time player's need to hold the direction in the stick to start drawing a rope.
+    [Range(0, 3)] public float inputTimeBeforeStartDrawing = 0.5f;
+
+    // Angle range (in the left or the right) which allows players to restart the rope.
+    [Range(0, 180)] public int ropeStartAngleRange = 30;
+
+    // Angle range (in the left or the right) which allows players to restart the rope.
+    [Range(0, 1)] public float minimumStickMagnitudeWhileDrawing = 0.4f;
+
+    #endregion
+
+    #region Properties
+    // Properties to access the individual ropes that the controller needs to manage.
+    Rope leftRope, rightRope;
+
+    public Rope LeftRope
+    {
+        get
+        {
+            if(leftRope == null)
+            {
+                Rope[] ropes = GetComponentsInChildren<Rope>();
+
+                if (ropes.Length != 2)
+                    Debug.LogError("There are currently " + ropes.Length + " under the RopeController's transform. There needs to be 2.");
+
+                foreach(Rope r in ropes)
+                {
+                    if (r.myOrientation == Rope.Orientation.left)
+                        leftRope = r;
+                    else
+                        rightRope = r;
+                }
+            }
+
+            return leftRope;
+        }
+    }
+    public Rope RightRope
+    {
+        get
+        {
+            if (rightRope == null)
+            {
+                Rope[] ropes = GetComponentsInChildren<Rope>();
+
+                if (ropes.Length != 2)
+                    Debug.LogError("There are currently " + ropes.Length + " under the RopeController's transform. There needs to be 2.");
+
+                foreach (Rope r in ropes)
+                {
+                    if (r.myOrientation == Rope.Orientation.left)
+                        leftRope = r;
+                    else
+                        rightRope = r;
+                }
+            }
+
+            return rightRope;
+        }
+    }
+
+    #endregion
+}
