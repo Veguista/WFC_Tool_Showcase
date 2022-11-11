@@ -1,0 +1,102 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Splines;
+
+public class RopePulse: MonoBehaviour
+{
+    // A pulse's intensity affects the intensity of the weapon it triggers.
+    [SerializeField] [Range(1, 20)] float initialPulseIntensity = 1;
+    [HideInInspector] public float pulseIntensity;
+
+    // A weapon's speed determines how fast it travels through a rope.
+    [SerializeField] [Range(0.1f, 20)] float initialPulseVelocity = 1;
+    [HideInInspector] public float pulseVelocity;
+
+    // A property used to determine how far along the rope our pulse is.
+    float percentageCompletion = 0;
+
+    // Property used to initialize the myRope variable.
+    Rope myRope;
+    Rope MyRope
+    {
+        get
+        {
+            if(myRope == null)
+            {
+                if (transform.parent.TryGetComponent<Rope>(out Rope result))
+                    myRope = result;
+                else
+                {
+                    Debug.LogError("Rope Pulse couldn't find a Rope component in it's parent." +
+                        "\nRope Pulse needs to find a rope component to be able to follow it's path.");
+                    return null;
+                }
+            }
+
+            return myRope;
+        }
+    }
+
+
+    private void OnEnable()
+    {
+        // Handling the categorization of the pulses.
+        if(MyRope.inactivePulses.Contains(this.gameObject))
+            MyRope.inactivePulses.Remove(this.gameObject);
+
+        MyRope.activePulses.Add(this.gameObject);
+
+
+        // Placing the pulse at the beginning of the rope.
+        transform.localPosition = MyRope.MySplines.Spline.EvaluatePosition(0);
+        pulseIntensity = initialPulseIntensity;
+        pulseVelocity = initialPulseVelocity;
+        percentageCompletion = 0;
+    }
+
+    private void OnDisable()
+    {
+        MyRope.activePulses.Remove(this.gameObject);
+        MyRope.inactivePulses.Add(this.gameObject);
+    }
+
+
+
+    // Movement and consequences of our pulse.
+    private void Update()
+    {
+        // We first store our percentage completition before altering it
+        // (to check for activated weapons later)
+        float oldPercentageCompletition = percentageCompletion;
+        
+        // We move our pulse.
+        percentageCompletion += pulseVelocity * Time.deltaTime;
+        
+        if (percentageCompletion > 1)   // We clamp our percentage completition value.
+            percentageCompletion = 1;
+
+        transform.localPosition = MyRope.MySplines.Spline.EvaluatePosition(percentageCompletion);
+        transform.localRotation = 
+            Quaternion.Euler(MyRope.MySplines.Spline.EvaluateTangent(percentageCompletion));
+
+
+        // We then check if our pulse activated any weapons during it's movement.
+        Weapon[] activatedWeapons = 
+            MyRope.ActivatedWeaponsInPath(oldPercentageCompletition, percentageCompletion);
+
+        if(activatedWeapons.Length > 0)
+        {
+            foreach(Weapon weapon in activatedWeapons)
+            {
+                weapon.ActivateWeapon(this);
+            }
+        }
+
+
+        // Finally, we check if our pulse has finished travelling the rope.
+        // If it has, it self-destroys.
+        if (percentageCompletion >= 1)
+            this.gameObject.SetActive(false);
+    }
+}
