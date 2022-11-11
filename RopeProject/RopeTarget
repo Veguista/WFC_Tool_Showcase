@@ -1,0 +1,603 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Splines;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(Rigidbody))]
+public class RopeTarget : MonoBehaviour
+{
+    // The transform to which we are sending our rotations to then follow with a SecondOrderTransform.
+    [SerializeField] Transform unsmooothedTarget;
+    
+    
+    // Property to get and set the state of the target.
+    public enum TargetState { readyToDraw, drawing, complete }
+    TargetState state = TargetState.readyToDraw;
+    public TargetState State
+    {
+        get
+        {
+            return state;
+        }
+        set
+        {
+            // If we are not changing the value of our state, we return.
+            if (state == value)
+                return;
+
+            // The state that we are leaving.
+            switch (state)
+            {
+                case TargetState.readyToDraw:
+                    {
+
+                        break;
+                    }
+                case TargetState.drawing:
+                    {
+                        // We disable all aspects of our target if we stop drawing.
+                        MyRb.velocity = Vector3.zero;
+                        MyRenderer.enabled = false;
+                        MySecondOrderTransform.enabled = false;
+                        break;
+                    }
+                case TargetState.complete:
+                    {
+                        // We remove any Pulses from our rope.
+                        MyRope.ResetAllPulses();
+                        break;
+                    }
+            }
+
+            // The state that we are entering.
+            switch (value)
+            {
+                case TargetState.readyToDraw:
+                    {
+                        MyRope.ResetRopeWeapons();
+                        MyRope.EmptySpline();
+
+                        // Reseting our power ups.
+                        if (MyRope.myOrientation == Rope.Orientation.left)
+                            PowerUpManager.st_PowerUpManager.ResetLeftRopePowerUps();
+                        else
+                            PowerUpManager.st_PowerUpManager.ResetRightRopePowerUps();
+
+
+                        inputTimer = 0;         // Reseting the timer for our stick.
+                        extraKnots = 0;         // Reseting the number of extraKnots our rope can have.
+
+                        transform.localPosition = Vector3.zero;
+
+                        break;
+                    }
+                case TargetState.drawing:
+                    {
+                        MyRope.state = Rope.RopeState.drawing;
+
+                        MyRenderer.enabled = true;
+                        MySecondOrderTransform.enabled = true;
+
+                        if (MyRope.myOrientation == Rope.Orientation.left)
+                            MySecondOrderTransform.followTransform.localRotation
+                                = Quaternion.Euler(0, -90, 0);
+                        else
+                            MySecondOrderTransform.followTransform.localRotation
+                                = Quaternion.Euler(0, 90, 0);
+
+                        break;
+                    }
+                case TargetState.complete:
+                    {
+                        MyRope.state = Rope.RopeState.full;
+
+                        // We validate all weapons in our rope.
+                        MyRope.ValidateNewWeapons();
+
+                        break;
+                    }
+            }
+
+            state = value;
+        }
+    }
+
+
+    // Property to get the Mesh Renderer of the Target.
+    MeshRenderer myRenderer;
+    MeshRenderer MyRenderer
+    {
+        get
+        {
+            if (myRenderer == null)
+                myRenderer = GetComponent<MeshRenderer>();
+
+            return myRenderer;
+        }
+    }
+
+
+    // Property used to reference our Rope, which should be a parent to this object.
+    Rope myRope;
+    Rope MyRope
+    {
+        get
+        {
+            if (myRope == null)
+                myRope = transform.parent.GetComponent<Rope>();
+
+            return myRope;
+        }
+    }
+
+
+    // Property used to reference our RopeController.
+    RopeController myRopeController;
+    RopeController MyRopeController
+    {
+        get
+        {
+            if (myRopeController == null)
+                myRopeController = MyRope.Controller;
+
+            return myRopeController;
+        }
+    }
+
+
+    // Property used to reference our RopeController.
+    Rigidbody myRb;
+    Rigidbody MyRb
+    {
+        get
+        {
+            if (myRb == null)
+                myRb = GetComponent<Rigidbody>(); ;
+
+            return myRb;
+        }
+    }
+
+
+    // Property used to reference our SecondOrderTransform.
+    SecondOrderTransform mySecondOrderTransform;
+    SecondOrderTransform MySecondOrderTransform
+    {
+        get 
+        {
+            if (mySecondOrderTransform == null)
+                mySecondOrderTransform = GetComponent<SecondOrderTransform>();
+
+            return mySecondOrderTransform;
+        }
+    }
+
+
+    // Property to reduce repeated oversized code when referencing InputActions in StatesController.
+    PlayerInputActions InputActions { get { return StatesController.st_states.InputActions; } }
+
+
+    // Property used to reference our Last Knot in our rope.
+    Vector3 LastKnotPosition
+    {
+        get 
+        {
+            Vector3 lastKnotPositionInParent = MyRope.MySplines.Spline[MyRope.MySplines.Spline.Count - 1].Position;
+            return lastKnotPositionInParent; 
+        }
+    }
+
+
+    private void Awake()
+    {
+        if (MyRope.myOrientation == Rope.Orientation.left)
+            InputActions.RopeDrawing.ReleaseLeftJoystick.performed += ReleaseJoystick;
+        else
+            InputActions.RopeDrawing.ReleaseRightJoystick.performed += ReleaseJoystick;
+    }
+
+
+    private void Update()
+    {
+        // Precaution to avoid doing anything if we are not in the correct Action Map.
+        if (StatesController.st_states.PlayerInput.currentActionMap.name != "RopeDrawing")
+            return;
+
+        // We first check our inputs.
+        CheckInputStateBeforeDrawing();
+        
+        // We then Move our Target if we can.
+        if (State == TargetState.drawing)
+        {
+            Move();
+        }
+    }
+
+
+    #region Movement Properties
+    // Variable values located in the RopeController.
+    float TargetMaxSpeed { get { return MyRopeController.targetMaxSpeed; } }
+    AnimationCurve TargetDeccelerationCurve { get { return MyRopeController.targetDecelerationCurve; } }
+
+
+
+        // Properties and variables related to the ropes lenght.
+    // We call it compound because it contains the extraKnots.
+    public float CompoundMaxRopeLenghtInKnots
+    {
+        get
+        {
+            int normalMaxNumberKnots = MyRopeController.maxNumberOfKnots;
+
+            if (normalMaxNumberKnots <= 1)
+                Debug.LogError("maxNumberOfKnots must always be bigger than 1.");
+            
+            int maxNumberOfKnots = normalMaxNumberKnots - 1 + extraKnots;
+            return maxNumberOfKnots;
+        }
+    }
+    float CurrentRopeLenghtInKnots
+    {
+        get
+        {
+            int numberOfKnots = MyRope.MySplines.Spline.Count;
+            float lastKnotToTargetDistance = (transform.localPosition - LastKnotPosition).magnitude;
+            return numberOfKnots - 1 + lastKnotToTargetDistance / MyRopeController.distanceBetweenKnots;
+        }
+    }
+
+    int extraKnots = 0;  // ExtraKnots is used by power-ups to amplify how long our rope can be.
+
+    public void IncreaseExtraKnots(int numberOfExtraKnots)
+    {
+        extraKnots += numberOfExtraKnots;
+    }
+    #endregion
+
+
+    #region Movement Methods
+    // This function performs all of the movement functions.
+    void Move()
+    {
+        Vector2 forceDirection = ObtainStickValues();
+
+        // Setting the rotation of our character.
+        unsmooothedTarget.LookAt(transform.parent.TransformPoint(
+            new Vector3(forceDirection.x, 0, forceDirection.y)), transform.parent.up);
+
+        float deccelerationMultiplier =
+            TargetDeccelerationCurve.Evaluate(CurrentRopeLenghtInKnots / CompoundMaxRopeLenghtInKnots);
+
+        MyRb.velocity = transform.forward * TargetMaxSpeed * deccelerationMultiplier;
+
+
+        CheckForKnotAddition();
+    }
+
+    void Move(float time)
+    {
+        Vector2 forceDirection = ObtainStickValues();
+
+        // Setting the rotation of our character.
+        unsmooothedTarget.LookAt(transform.parent.TransformPoint(
+            new Vector3(forceDirection.x, 0, forceDirection.y)), transform.parent.up);
+
+        float deccelerationMultiplier =
+            TargetDeccelerationCurve.Evaluate(CurrentRopeLenghtInKnots / CompoundMaxRopeLenghtInKnots);
+
+        MyRb.velocity = transform.forward * TargetMaxSpeed * deccelerationMultiplier;
+
+
+        CheckForKnotAddition();
+    }
+
+
+    // This function returns a Vector2 with the correct (left / right) stick's values.
+    Vector2 ObtainStickValues()
+    {
+                // (Left Rope).
+        if (MyRope.myOrientation == Rope.Orientation.left)
+            return RopeActions.DrawLeftRope.ReadValue<Vector2>();
+
+        else    // (Right Rope).
+            return RopeActions.DrawRightRope.ReadValue<Vector2>();
+    }
+
+
+    // This function checks if we are far away enough from the LastKnot to have to create a new knot.
+    // It also checks if our rope has surpased its maxLenght. If it has, we change the TargetState.
+    void CheckForKnotAddition()
+    {
+        Vector3 distanceFromLastKnot = transform.localPosition - LastKnotPosition;
+        float maxKnotSeparation = MyRopeController.distanceBetweenKnots;
+
+        // If we are too far away from the Last Knot.
+        if (distanceFromLastKnot.magnitude >= maxKnotSeparation)
+        {
+            Vector3 localKnotPosition = LastKnotPosition + distanceFromLastKnot.normalized * maxKnotSeparation;
+
+
+            bool isRopeComplete = MyRope.AddBezierKnot(localKnotPosition);
+
+            if (isRopeComplete)
+            {
+                State = TargetState.complete;
+                return;
+            }
+        }
+    }
+    #endregion
+
+
+    #region Collision with Nodes
+    private void OnTriggerEnter(Collider collider)
+    {
+        // Checking that our collision happened with an object on layer 11 (WeaponNodes).
+        if (collider.gameObject.layer == 11)
+        {
+            Weapon newActiveWeapon = 
+                collider.gameObject.GetComponent<WeaponNode>().EnableWeapon(MyRope);
+            MyRope.AddWeaponToValidationQue(newActiveWeapon);
+        }
+
+        // Checking that our collision happened with an object on layer 12 (PowerUpNodes).
+        else if (collider.gameObject.layer == 12)
+        {
+            // We store the gameObject to reactivate it in case that we reset this rope.
+            RopePowerUp collidedPowerUp = null;
+
+            if (collider.gameObject.TryGetComponent<RopePowerUp>(out RopePowerUp myOut))
+                collidedPowerUp = myOut;
+            else
+                Debug.LogError("Collider " + collider.name + " is located in layer 12 " +
+                    "(PowerUpNodes) but does not contain a PowerUpNode child script.");
+
+
+            // Adding our PowerUp to our PowerUpManager list.
+            if (MyRope.myOrientation == Rope.Orientation.left)
+                PowerUpManager.st_PowerUpManager.AddPowerUpToLeftRope(collidedPowerUp);
+            else
+                PowerUpManager.st_PowerUpManager.AddPowerUpToRightRope(collidedPowerUp);
+
+
+            // We activate the effects of the power up.
+            myOut.ActivatePowerUp(this);
+
+            // And deactivate it temporarily.
+            collidedPowerUp.gameObject.SetActive(false);
+        }
+    }
+
+    #endregion
+
+
+    #region Input Elements
+
+    // Hidden variables.
+    float inputTimer = 0;   // Used to save how much time the stick has been pressed
+                            // in the correct direction for.
+
+    #region Properties
+    // Variable values located in the RopeController.
+    float InputTimeBeforeStartDrawing { get { return MyRopeController.inputTimeBeforeStartDrawing; } }
+    int RopeStartAngleRange { get { return MyRopeController.ropeStartAngleRange; } }
+    float MinimumStickMagnitudeWhileDrawing { get { return MyRopeController.minimumStickMagnitudeWhileDrawing; } }
+
+    // This property is used to access the RopeDrawing action map in our StatesController.
+    PlayerInputActions.RopeDrawingActions RopeActions
+    {
+        get { return StatesController.st_states.InputActions.RopeDrawing; }
+    }
+
+    #endregion
+
+    #region Methods
+
+    // This function checks that the player stick is inside the accepted angle range.
+    bool IsAngleInRangeForDrawing()
+    {
+        if (MyRope.myOrientation == Rope.Orientation.left)
+        {
+            Vector2 axis = RopeActions.DrawLeftRope.ReadValue<Vector2>();
+
+                                                // Our angle range is twice the size of the max valid angle from (-1,0) to our axis.
+            if (Vector2.Angle(axis, Vector2.left) <= RopeStartAngleRange / 2)
+                return true;
+            else
+                return false;
+        }
+
+        else    // Right rope.
+        {
+            Vector2 axis = RopeActions.DrawRightRope.ReadValue<Vector2>();
+
+                                                // Our angle range is twice the size of the max valid angle from (1,0) to our axis.
+            if (Vector2.Angle(axis, Vector2.right) <= RopeStartAngleRange / 2)
+                return true;
+            else
+                return false;
+        }
+    }
+
+
+    // This function performs all necessary methods prior to drawing with our target.
+    // It also checks, while we are drawing, that the stick has enough magnitude.
+    void CheckInputStateBeforeDrawing()
+    {
+        // If we are not yet drawing.
+        if(State == TargetState.complete ^ State == TargetState.readyToDraw)
+        {   
+            if (hasJoystickBeenReleased && ObtainStickValues().magnitude > 
+                MinimumStickMagnitudeWhileDrawing * inputTimer / InputTimeBeforeStartDrawing)
+            {
+                if (IsAngleInRangeForDrawing())
+                {
+                    inputTimer += Time.deltaTime;
+
+                    if (inputTimer >= InputTimeBeforeStartDrawing)
+                    {
+                        State = TargetState.readyToDraw;
+                        State = TargetState.drawing;
+
+                        hasJoystickBeenReleased = false;
+
+                        Move(inputTimer - InputTimeBeforeStartDrawing);
+                        inputTimer = 0;
+                    }
+                }
+                else
+                    inputTimer = 0;
+            }
+            else
+                inputTimer = 0;
+        }
+
+        else    // If we ARE drawing.
+        {
+            if(MyRope.myOrientation == Rope.Orientation.left)
+            {
+                if(RopeActions.DrawLeftRope.ReadValue<Vector2>().magnitude < MinimumStickMagnitudeWhileDrawing)
+                {
+                    State = TargetState.readyToDraw;
+                }
+            }
+
+            else    // Right Rope.
+            {
+                if (RopeActions.DrawRightRope.ReadValue<Vector2>().magnitude < MinimumStickMagnitudeWhileDrawing)
+                {
+                    State = TargetState.readyToDraw;
+                }
+            }
+        }
+    }
+
+
+    // This bool is used to prevent CheckInputStateBeforeDrawing from resetting the rope
+    // before players have at least released the joystick for a frame.
+    bool hasJoystickBeenReleased = true;
+
+    private void ReleaseJoystick(InputAction.CallbackContext context)
+    {
+        hasJoystickBeenReleased = true;
+    }
+
+
+    #endregion
+
+    #endregion
+
+
+    #region Deprecated functions
+
+    #region Unsmoothed version of Movement (DEPRECATED)
+    /*
+    // Alternative version of the Move() function used by the Input section to move the target a defined ammount of time.
+    void Move(float time)
+    {
+        if (time == 0)
+            return;
+
+        Vector2 forceDirection = ObtainStickValues();
+
+        MyRb.AddRelativeForce(new Vector3(forceDirection.x, 0, forceDirection.y)
+            * TargetAcceleration * 10 * time, ForceMode.Acceleration);
+
+        float deccelerationMultiplier =
+            TargetDeccelerationCurve.Evaluate(CurrentRopeLenghtInKnots / MaxRopeLenghtInKnots);
+
+        // We limit the velocity of the target.
+        if (MyRb.velocity.magnitude > TargetMaxSpeed * deccelerationMultiplier)
+        {
+            Vector3 velocityDirection = MyRb.velocity.normalized;
+            MyRb.velocity = velocityDirection * TargetMaxSpeed * deccelerationMultiplier;
+        }
+
+        CheckForKnotAddition();
+    }
+    */
+    #endregion
+
+
+    /*
+ 
+    // This function rotates the target as much as it can towards its intended direction within the Time.deltaTime
+    void RotateTarget()
+    {
+        Vector2 axis = ObtainStickValues();
+
+        if (axis == Vector2.zero)
+            return;
+
+        float currentYRotation = transform.rotation.eulerAngles.y;
+        float targetYRotation = Vector2.Angle(Vector2.up, axis);
+        float differenceBetweenYRotations = targetYRotation - currentYRotation;
+        float maxYRotationInTime = MaxYRotationSpeed * Time.deltaTime;
+
+        // We clamp the rotation that we are about to commit.
+        if (Mathf.Abs(differenceBetweenYRotations) > maxYRotationInTime)
+            targetYRotation += differenceBetweenYRotations / Mathf.Abs(differenceBetweenYRotations) * maxYRotationInTime;
+
+        // We do a little cleaning of our rotation values to keep them inside the [0, 360] range.
+        if (targetYRotation >= 360)
+            targetYRotation -= 360;
+
+        else if (targetYRotation < 0)
+            targetYRotation += 360;
+
+        // We apply our rotation change.
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, targetYRotation, transform.rotation.eulerAngles.z);
+    }
+
+
+    // Alternative version of RotateTarget() that rotates an object while constrained by the specified time.
+    void RotateTarget(float time)
+    {
+        Vector2 axis = ObtainStickValues();
+
+        if (axis == Vector2.zero)
+            return;
+
+        float currentYRotation = transform.rotation.eulerAngles.y;
+        float targetYRotation = Vector2.Angle(Vector2.right, axis) - 45;    // The -45 accounts for the camera rotation.
+        float differenceBetweenYRotations = targetYRotation - currentYRotation;
+        float maxYRotationInTime = MaxYRotationSpeed * time;
+
+        // We clamp the rotation that we are about to commit.
+        if (Mathf.Abs(differenceBetweenYRotations) > maxYRotationInTime)
+            targetYRotation += differenceBetweenYRotations / Mathf.Abs(differenceBetweenYRotations) * maxYRotationInTime;
+
+        // We do a little cleaning of our rotation values to keep them inside the [0, 360] range.
+        if (targetYRotation >= 360)
+            targetYRotation -= 360;
+
+        else if (targetYRotation < 0)
+            targetYRotation += 360;
+
+        // We apply our rotation change.
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, targetYRotation, transform.rotation.eulerAngles.z);
+    }
+
+
+    // This function returns the speed at which the target should move this frame.
+    float ObtainTargetSpeed()
+    {
+        float ropeLenghtInKnots = CurrentRopeLenghtInKnots;
+
+        if (ropeLenghtInKnots < NumberOfAccelerationKnots)  // Returning an accelerating speed.
+            return TargetSpeed * TargetAccelerationCurve.Evaluate(ropeLenghtInKnots / NumberOfAccelerationKnots);
+
+        // Returning a speed that is deccelerating.
+        return TargetSpeed * TargetDecelerationCurve.Evaluate
+            ((MaxRopeLenghtInKnots - NumberOfAccelerationKnots) 
+            / (CurrentRopeLenghtInKnots - NumberOfAccelerationKnots));
+        // We substract the acceleration Knots from both ends to avoid overlap of the acceleration and decceleration curves.
+    }
+
+
+
+
+    */
+    #endregion
+}
