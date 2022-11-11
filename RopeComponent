@@ -1,0 +1,488 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Splines;
+using UnityEngine.InputSystem;
+
+public class Rope : MonoBehaviour
+{
+    // Enum to check which side this rope belongs to.
+    public enum Orientation {left, right}
+    public Orientation myOrientation = Orientation.right;
+    
+
+    // Property used to indicate and change the state of the rope.
+    public enum RopeState { empty, drawing, full }
+
+    public RopeState state = RopeState.empty;
+
+
+    // Property used to reference our SplineContainer.
+    SplineContainer mySplines;
+    public SplineContainer MySplines
+    {
+        get
+        {
+            if (mySplines == null)
+                mySplines = GetComponent<SplineContainer>();
+
+            return mySplines;
+        }
+    }
+
+
+    // Property used to reference our RopeController.
+    RopeController controller;
+    public RopeController Controller
+    {
+        get
+        {
+            if (controller == null)
+                controller = transform.parent.GetComponent<RopeController>();
+
+            return controller;
+        }
+    }
+
+
+    // Property used to reference our target, which should be a child to this object.
+    RopeTarget target;
+    public RopeTarget Target
+    {
+        get
+        {
+            if (target == null)
+                target = GetComponentInChildren<RopeTarget>();
+
+            return target;
+        }
+    }
+
+
+    // Property to reduce repeated oversized code when referencing InputActions in StatesController.
+    PlayerInputActions InputActions { get { return StatesController.st_states.InputActions; } }
+
+
+    // Subscribing to the input events needed to instantiate our pulses.
+    private void Awake()
+    {
+        if (myOrientation == Orientation.left)
+        {
+            InputActions.FightingPosition.ShootLeftRope.performed += CreatePulse;
+            InputActions.FightingPosition.ReleaseLeftTrigger.performed += ResetTrigger;
+        }
+        else
+        {
+            InputActions.FightingPosition.ShootRightRope.performed += CreatePulse;
+            InputActions.FightingPosition.ReleaseRightTrigger.performed += ResetTrigger;
+        }
+        }
+
+    private void Update()
+    {
+        if (state == RopeState.drawing || state == RopeState.full)
+            PaintRope();
+    }
+
+
+    #region Basic functionality
+    // This function adds a BezierKnot to our Spline in the desired position.
+    // It returns true if that know completed our rope.
+    public bool AddBezierKnot(Vector3 position)
+    {
+        if(state != RopeState.drawing)
+        {
+            Debug.LogError("Trying to add knots to a Spline that is not in drawing State.");
+            return false;
+        }
+
+        // We first add the dot to our position.
+        MySplines.Spline.Add(new BezierKnot(position));
+
+        // We then check if our rope lenght has been reached.
+        // If it has, we change our rope State and return true.
+        if(MySplines.Spline.Count >= Target.CompoundMaxRopeLenghtInKnots)
+        {
+            state = RopeState.full;
+            return true;
+        }
+
+        return false;
+    }
+
+
+    // This function empties the Spline, eliminating all knots but our original one.
+    public void EmptySpline()
+    {        
+        state = RopeState.empty;
+
+        EmptyLineRenderer();
+
+        // We empty the Spline and leave only one knot inside.
+        MySplines.Spline.Clear();
+        MySplines.Spline.Add(new BezierKnot(Vector3.zero));
+    }
+
+
+    /* Deprecated / unfinished feature
+    public bool CheckForIntersection(Vector3 start, Vector3 end)
+    {
+        IEnumerable<BezierKnot> myKnots = Splines.Spline.Knots;
+
+        int ID = 0;
+
+        foreach(BezierKnot b in myKnots)
+        {
+
+        }
+    }
+    */
+    #endregion
+
+    #region Line Painting
+
+    LineRenderer myLineRenderer;
+    LineRenderer MyLineRenderer
+    {
+        get
+        {
+            if (myLineRenderer == null)
+            {
+                if (gameObject.TryGetComponent<LineRenderer>(out LineRenderer myOut))
+                { 
+                    myLineRenderer = myOut;
+                    myLineRenderer.useWorldSpace = false;
+                }
+                else
+                {
+                    Debug.LogError("All ropes must have a LineRenderer component attached to them.");
+                }
+            }
+
+            return myLineRenderer;
+        }
+    }
+
+
+    // This function sets the point in the rope's Line Renderer.
+    void PaintRope()
+    {
+        MyLineRenderer.positionCount = MySplines.Spline.Count;
+
+        Vector3[] linePoints = new Vector3[MySplines.Spline.Count + 1];
+        BezierKnot[] myKnots = MySplines.Spline.ToArray();
+
+        for (int i = 0; i < linePoints.Length - 1; i++)
+        {
+            linePoints[i] = myKnots[i].Position;
+        }
+
+        linePoints[linePoints.Length - 1] = Target.transform.localPosition;
+
+        MyLineRenderer.SetPositions(linePoints);
+    }
+
+    // Property used to instantiate and reference our GameObject with the RopeDissapearScript script.
+    RopeDissapearController myRopeDisposal;
+    RopeDissapearController MyRopeDisposal
+    {
+        get
+        {
+            if(myRopeDisposal == null)
+            {
+                GameObject obj = Instantiate<GameObject>(Controller.ropeDissapearControllerPrefab, 
+                    transform);
+                myRopeDisposal = obj.GetComponent<RopeDissapearController>();
+                obj.SetActive(false);
+            }
+
+            return myRopeDisposal;
+        }
+    }
+
+    // Property to obtain the RopeDissapearTimer from our RopeController
+    float RopeDissapearTime { get { return Controller.ropeDissapearTime; } }
+
+
+    // This function activates an animation that slowly makes the old Line dissapear.
+    void EmptyLineRenderer()
+    {
+        // We activate the GameObject to which we transfer our old Rope Spline.
+        if (MyRopeDisposal.gameObject.activeInHierarchy == false)
+            MyRopeDisposal.gameObject.SetActive(true);
+
+        // We clear any left over splines in that GameObject.
+        MyRopeDisposal.MySplines.Spline.Clear();
+
+        // We duplicate our Spline into our disposable GameObject.
+        foreach (BezierKnot knot in MySplines.Spline.Knots)
+        {
+            MyRopeDisposal.MySplines.Spline.Add(knot);
+        }
+
+        // We set a timer for the dissapearance of the rope.
+        MyRopeDisposal.SetTimer(RopeDissapearTime, 
+            (float) MySplines.Spline.Count / Controller.maxNumberOfKnots);
+        
+        // And we clean our main rope.
+        ResetLineRenderer();
+    }
+
+
+    // This function empties the player's line without an animation.
+    void ResetLineRenderer()
+    {
+        MyLineRenderer.positionCount = 0;
+    }
+
+    #endregion
+
+    #region Weapons placement and activation
+
+    // This dictionary stores all of the weapons currently active in our rope together
+    // with their position (calculated in % of completion) in that same rope.
+    Dictionary<float, Weapon> weaponsInRope;
+
+    // A list with all the weapon locations in our rope.
+    List<float> myWeaponLocations;
+
+
+    // Properties used to initialize our Dictionaries and Lists.
+    Dictionary<float, Weapon> WeaponsInRope
+    {
+        get
+        {
+            if (weaponsInRope == null)
+                weaponsInRope = new();
+
+            return weaponsInRope;
+        }
+        set
+        {
+            weaponsInRope = value;
+        }
+    }
+    List<float> MyWeaponLocations
+    {
+        get
+        {
+            if (myWeaponLocations == null)
+                myWeaponLocations = new();
+
+            return myWeaponLocations;
+        }
+        set
+        {
+            myWeaponLocations = value;
+        }
+    }
+
+
+
+    // This function is used by pulses to determine if they should activate any Weapons during
+    // their movement. It returns an array with any weapons found between the input percentages.
+    public Weapon[] ActivatedWeaponsInPath
+        (float initialPercentageCompletition, float finalPercentageCompletition)
+    {
+        // If our rope contains no weapons, we return an empty array inmediately.
+        if (MyWeaponLocations.Count == 0)
+            return new Weapon[0];
+
+
+        int positionOfFirstWeaponInList = 0;
+        bool notFoundThePosition = true;
+        List<Weapon> activatedWeapons = new();
+
+
+        // We determine which weapon is the first we have to check for activation.
+        while (notFoundThePosition && positionOfFirstWeaponInList < MyWeaponLocations.Count)
+        {
+            // If the weapon's location is the first to be bigger than our initial position,
+            // we want to check that weapon's activation.
+            if(MyWeaponLocations[positionOfFirstWeaponInList] > initialPercentageCompletition)
+                notFoundThePosition = false;
+
+            else
+                positionOfFirstWeaponInList++;
+        }
+
+
+        bool keepChecking = true;
+
+        // We now check our first possible weapon. If it is activated, we also check the next weapon
+        // until we check the last weapon in the List or we find a weapon that wasn't activated.
+        while(keepChecking && positionOfFirstWeaponInList <= MyWeaponLocations.Count - 1)
+        {
+            if (MyWeaponLocations[positionOfFirstWeaponInList] < finalPercentageCompletition)
+            {
+                activatedWeapons.Add(WeaponsInRope[MyWeaponLocations[positionOfFirstWeaponInList]]);
+                positionOfFirstWeaponInList++;
+            }
+            else
+                keepChecking = false;
+        }
+
+
+        return activatedWeapons.ToArray();
+    }
+
+
+
+    // This list is called the validation que. Every time the rope is completed, it needs to
+    // validate the position of all of it's rope's whithin the que.
+    List<Weapon> validationQue = new();
+
+
+    // This function adds a weapon to our rope at a concrete point. It does NOT validate them.
+    public void AddWeaponToValidationQue(Weapon weapon)
+    {
+        validationQue.Add(weapon);
+    }
+
+
+    // This function takes our weapon positions and evaluates where they are placed within the Rope.
+    // This function should be called EVERY TIME the rope is completed, as it's lenght might change.
+    public void ValidateNewWeapons()
+    {
+        foreach(Weapon weapon in validationQue)
+        {
+            SplineUtility.GetNearestPoint<Spline>(MySplines.Spline,
+                transform.InverseTransformPoint(weapon.transform.position),
+                out Unity.Mathematics.float3 nearest, out float t);
+
+            // Clamping the value of t.
+            if (t < 0 || t >= 1)
+                t = Mathf.Clamp(t, 0, 0.999f);
+
+            WeaponsInRope.Add(t, weapon);
+            MyWeaponLocations.Add(t);
+            weapon.MyWeaponNode.State = WeaponNode.NodeState.readyToFight;
+        }
+
+        validationQue.Clear();
+    }
+
+
+    // This function is called when our rope is destroyed.
+    // It disables all of our current active weapons.
+    // It also resets all of our lists and dictionaries.
+    public void ResetRopeWeapons()
+    {
+        if (state == RopeState.drawing)
+        {
+            // Disabling all of our weapons waiting for validation.
+            foreach (Weapon weapon in validationQue)
+            {
+                weapon.MyWeaponNode.State = WeaponNode.NodeState.drawWaitForTarget;
+            }
+        }
+        else
+        {
+            // Disabling all of our active weapons.
+            foreach (Weapon weapon in WeaponsInRope.Values)
+            {
+                weapon.MyWeaponNode.State = WeaponNode.NodeState.drawWaitForTarget;
+            }
+        }
+
+
+
+        // Reseting all of our lists and dictionaries.
+        validationQue.Clear();
+        WeaponsInRope.Clear();
+        MyWeaponLocations.Clear();
+    }
+
+
+    // This function removes a Weapon from the active weapon list.
+    public void RemoveWeaponFromRope(Weapon weapon)
+    {
+        Debug.LogError("RemoveWeaponFromRope method hasn't been yet implemented.");
+    }
+
+    #endregion
+
+    #region Pulse Methods
+
+    // Our references to the pulse GameObjects, active or inactive.
+    // A pulse GameObject should be disabled when it stops being used.
+    // Pulses deactivate automatically when they reach the end of a rope.
+    // They also automatically add/remove themselves from active/inactive pulses lists.
+    [HideInInspector] public List<GameObject> inactivePulses = new();
+    [HideInInspector] public List<GameObject> activePulses = new();
+
+
+    // This function is used to obtain pulses to be acivated by our CreatePulse function.
+    // It first checks if there are any inactive pulses availible.
+    // If there aren't, it creates a new one, adding it to the pool of pulses.
+    private GameObject ObtainPulseGameObject()
+    {
+        if (inactivePulses.Count == 0)
+            return Instantiate<GameObject>(Controller.ropePulsePrefab, transform);
+
+        else
+            return inactivePulses[0];
+    }
+
+
+    // This function is called by an input event when players press the trigger.
+    // It calls ObtainPulseGameObject and enables that pulse if the trigger is fully pressed.
+    public void CreatePulse(InputAction.CallbackContext context)
+    {
+        // We prevent multiple callings of the same function prior to releasing the trigger.
+        // We also prevent pulses from being created in any state other than full.
+        if (hasTriggeredBeenReleased == false || state != RopeState.full)
+            return;
+        
+
+        // We first check that our trigger is pushed to the maximum.
+        if(myOrientation == Orientation.left)
+        {
+            if (StatesController.st_states.InputActions.FightingPosition.
+                ShootLeftRope.ReadValue<float>() != 1)
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (StatesController.st_states.InputActions.FightingPosition.
+                ShootRightRope.ReadValue<float>() != 1)
+            {
+                return;
+            }
+        }
+
+        hasTriggeredBeenReleased = false;
+
+        ObtainPulseGameObject().SetActive(true);
+    }
+
+
+    // This bool is used to prevent a CreatePulse action from been called twice before players
+    // release that trigger.
+    bool hasTriggeredBeenReleased = true;
+
+    // This method is called when players release the trigger.
+    private void ResetTrigger(InputAction.CallbackContext context)
+    {
+        hasTriggeredBeenReleased = true;
+    }
+
+
+    // This function is used to disable all pulse GameObjects currently active.
+    // It is used when the rope state changes while pulses are still active.
+    public void ResetAllPulses()
+    {
+        // If there are no active pulses at the moment, we return.
+        if (activePulses.Count == 0)
+            return;
+
+        for(int i = 0; i < activePulses.Count; i++)
+        {
+            activePulses[i].SetActive(false);
+        }
+    }
+
+    #endregion
+}
