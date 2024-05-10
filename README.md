@@ -1,7 +1,6 @@
-This tool is meant to help users utilize the Wave Function Collapse algorithm in Unity.
+This tool is meant to help users utilize the Wave Function Collapse algorithm in Unity. To begin using it, copy the contents of the "WFC" folder into your Unity project.
 
-
-To begin using it, copy the contents of the "WFC" folder into your Unity project. The tool is comprised of 3 main parts:
+The tool is comprised of 3 main parts:
 
 - Scriptable Tiles: A Scriptable Object that stores the Prefab information of each of your map tiles. Those are the prefabs that the WFC algorithm will output once is complete. You can create new Scriptable Tiles in the Project section by doing [RightClick] -> Create -> WFC Tools -> Create New Tile.
 
