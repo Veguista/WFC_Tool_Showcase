@@ -1,0 +1,1421 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602353addb6dc5241a80d95bce72f664, type: 3}
+  m_Name: ExampleGrid
+  m_EditorClassIdentifier: 
+  availibleScriptableTiles:
+  - {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+  - {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+  - {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+  - {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+  - {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+  - {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+  - {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+  - {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+  - {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+  - {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+  - {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+  - {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+  - {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+  - {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+  - {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+  - {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+  - {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+  - {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+  - {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+  - {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+  - {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+  - {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+  - {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+  - {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+  - {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+  availibleTileInstanceConfigs:
+  - scriptableTile: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    isEnabled: 0
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    isEnabled: 0
+    weight: 1
+  - scriptableTile: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    isEnabled: 0
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    isEnabled: 0
+    weight: 5
+  - scriptableTile: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    isEnabled: 1
+    weight: 1
+  - scriptableTile: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    isEnabled: 1
+    weight: 3
+  - scriptableTile: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    isEnabled: 1
+    weight: 20
+  - scriptableTile: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    isEnabled: 1
+    weight: 1
+  - scriptableTile: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+    isEnabled: 1
+    weight: 2
+  - scriptableTile: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+    isEnabled: 1
+    weight: 5
+  - scriptableTile: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+    isEnabled: 1
+    weight: 5
+  myConnectionsBetweenTiles:
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0001010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0001000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0101010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0101010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0101010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0101010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0101010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0001010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0101000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0100010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0100000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0100010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0001010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0001000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0101010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0001010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0101000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0100010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0101010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+      tileTwo: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0001010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+      tileTwo: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0101000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0100010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+      tileTwo: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0101010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+      tileTwo: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+    myConnectionsInAlldirections: 0001000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+    myConnectionsInAlldirections: 0100000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+      tileTwo: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3534dc2842b044d4c9b0528235d54118, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: a5c814bf6cb557741ae89abf97ab4c9b, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 063ca4b051159684598c800c0b027111, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0ddc8c5b90e43a24d9949dc8a366e293, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: bd5afd5e7961b1d4d9911443d6e204ba, type: 2}
+    myConnectionsInAlldirections: 0101010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: e1fd540a6c738a5469ea44b827ed14ae, type: 2}
+    myConnectionsInAlldirections: 0101010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 6d8247d8f02465442bc5b7ea7ec6fcac, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: dab81133673e63e45bf53873208e97e1, type: 2}
+    myConnectionsInAlldirections: 0100010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: e51ce0fa9a293554c8ecb756ab496401, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 929c173f9c69ea146a7051d92ce6e076, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: aa4903a3172033e47934881fc8249029, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 41acc0962c724fd4392f238c5afbf8ab, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 0b19fab553f61c3468bb8756645ea350, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: c1e8a00f728f89a4ab60ccc749df6a23, type: 2}
+    myConnectionsInAlldirections: 0101000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 8b0482b88086a3847937fddd08072645, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4185be0c4c2d2954a9765757624818ee, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: a0f769af0dc095a41a943d2d541746db, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 3d1929067896b5f4da02eec9eec74efb, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 25aaa676ce2025c4e9791964604f1372, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 33f71959670bc014a936ba5c837bb8e6, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 4a16353d625b35348a65cf4d24deb268, type: 2}
+    myConnectionsInAlldirections: 0000000100000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: 596d4f551935a224bafc59d62a83d9a2, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: d50e2902d078b6a4bb90d06483c76c23, type: 2}
+    myConnectionsInAlldirections: 0000010000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: a1f16c37df638304a8a75c0a6008cfad, type: 2}
+    myConnectionsInAlldirections: 0000000000000000000000000000
+  - twoScriptableTiles:
+      tileOne: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+      tileTwo: {fileID: 11400000, guid: fd43bb90850d01c418c523060e9b9561, type: 2}
+    myConnectionsInAlldirections: 0000010100000000000000000000
+  availibleTileFolderPaths:
+  - folderPath: Assets/WFC Tests
+    searchSubFolders: 1
+  typeOfGrid: 0
