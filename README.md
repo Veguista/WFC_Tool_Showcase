@@ -1,4 +1,4 @@
-![alt text](https://github.com/Veguista/WFC_Tool_Showcase/blob/main/Media/WFC_Timelapse.mp4?raw=true)
+Showcase video: https://www.youtube.com/watch?v=ALU8YIzwWMg&list=TLGGvQWxQ2pbAjUyNDA1MjAyNA
 
 This tool is meant to help users utilize the Wave Function Collapse algorithm in Unity. To begin using it, copy the contents of the "WFC" folder into your Unity project.
 
